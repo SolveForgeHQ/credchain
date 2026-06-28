@@ -17,7 +17,7 @@ jobs:
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: 1.74.0
           target: wasm32-unknown-unknown
           override: true
 
@@ -30,6 +30,28 @@ jobs:
         run: |
           cd contracts/reputation
           cargo test
+
+  backend:
+    name: Build and Test Backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          npm install
+
+      - name: Run backend tests
+        run: |
+          cd backend
+          npm test
 
   frontend:
     name: Build Frontend
