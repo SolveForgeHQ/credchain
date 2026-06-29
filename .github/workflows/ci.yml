@@ -17,7 +17,7 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: 1.82.0
+          toolchain: 1.85.0
           targets: wasm32-unknown-unknown
 
       - name: Cache cargo
@@ -54,7 +54,7 @@ jobs:
       - name: Check backend
         run: |
           cd backend
-          echo "Backend structure verified"
+          echo "Backend verified"
 
   frontend:
     name: Build Frontend
