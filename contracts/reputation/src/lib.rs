@@ -103,7 +103,7 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, ReputationContract);
+        let contract_id = env.register(ReputationContract, ());
         let client = ReputationContractClient::new(&env, &contract_id);
 
         let student = Address::generate(&env);
@@ -119,7 +119,7 @@ mod test {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, ReputationContract);
+        let contract_id = env.register(ReputationContract, ());
         let client = ReputationContractClient::new(&env, &contract_id);
 
         let student = Address::generate(&env);
